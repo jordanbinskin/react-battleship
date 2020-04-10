@@ -6,15 +6,6 @@ import  { getBoard, updateBoard, placeShip } from './store/actions';
 
 import "./styles.css";
 
-// const getMyBoardAsProps = state => ({
-//   ships: [...state],
-//   fires: [...state]
-// })
-
-// const getMyAttemptsAsProps = state => ({
-//   trys: [...state]
-// })
-
 const mapStateToProps = ({ board }) => ({
   board
 })
