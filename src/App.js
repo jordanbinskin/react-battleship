@@ -16,31 +16,16 @@ const mapDispatchToProps = {
   placeShip
 }
 
-const ships = {
-  destroyer:  { size: 2, limit: 2 },
-  cuirser:    { size: 3, limit: 1 },
-  battleShit: { size: 4, limit: 1 }
-}
-
-// function onClickHandler(index) {
-//   console.log('clicked', index)
-//   //  which phase
-//     //  hand over to state change methods
-// }
-
-function App({ board, ships, placeShip }) {
+function App({ board, placeShip }) {
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <h2>My battleshit app</h2>
 
       <Grid>
-        { board.map((_, index) => 
-            <Cell key={index}
-              onClickHandler={() => {
-                console.log(index)
-                placeShip(index)
-              }}
+        { board.map((cell, index) => 
+            <Cell ship={cell.ship} key={index}
+              onClickHandler={() => placeShip(index)}
             />
         )}
       </Grid>
