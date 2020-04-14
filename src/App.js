@@ -1,36 +1,30 @@
 import React from "react";
-import Cell from './components/Cell';
-import Grid from './components/Grid';
+import ShipPlacementOptions from './components/ShipPlacementOptions';
+
 import { connect } from "react-redux";
-import  { getBoard, updateBoard, placeShip } from './store/actions';
+import { getBoard, updateBoard, placeShip } from './store/actions';
 
 import "./styles.css";
 
 const mapStateToProps = ({ board }) => ({
-  board
+	board
 })
 
 const mapDispatchToProps = {
-  getBoard,
-  updateBoard,
-  placeShip
+	getBoard,
+	updateBoard,
+	placeShip
 }
 
 function App({ board, placeShip }) {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>My battleshit app</h2>
+	return (
+		<div className="App">
+			<h1>Hello CodeSandbox</h1>
+			<h2>My battleshit app</h2>
 
-      <Grid>
-        { board.map((cell, index) => 
-            <Cell ship={cell.ship} key={index}
-              onClickHandler={() => placeShip(index)}
-            />
-        )}
-      </Grid>
-    </div>
-  );
+			<ShipPlacementOptions />
+		</div>
+	);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
